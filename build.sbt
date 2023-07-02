@@ -15,6 +15,7 @@ lazy val `test-selenium` = project
     scalaVersion := "3.1.2",
     scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
     scalaJSUseMainModuleInitializer := true,
+    // Removing this ESModule settings will pass test with Selenium, but JS modules cannot be loaded
     scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.ESModule)
         .withModuleSplitStyle(ModuleSplitStyle.SmallestModules)
