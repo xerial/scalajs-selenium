@@ -43,6 +43,7 @@ jobs:
         with:
           path: |
             ~/.ivy2/local/org.scalablytyped
+            ~/.sbt
             ~/.cache
           key: ${{ runner.os }}-scalablytyped
       - uses: actions/setup-java@v3
