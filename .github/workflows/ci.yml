@@ -20,6 +20,10 @@ on:
       - '.github/workflows/*.yml'
       - 'project/build.properties'
 
+# For reporting test reports
+permissions:
+  checks: write
+
 jobs:
   code_format:
     name: Code format
