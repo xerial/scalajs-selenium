@@ -1,4 +1,6 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
+import org.openqa.selenium.chrome.{ChromeDriver,ChromeOptions}
+import org.scalajs.jsenv.selenium.SeleniumJSEnv
 
 val publicDev = taskKey[String]("output directory for `npm run dev`")
 val publicProd = taskKey[String]("output directory for `npm run build`")
@@ -13,7 +15,7 @@ lazy val `test-selenium` = project
     scalaJSUseMainModuleInitializer := true,
     scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.ESModule)
-        .withModuleSplitStyle(ModuleSplitStyle.SmallModules)
+        .withModuleSplitStyle(ModuleSplitStyle.SmallestModules)
     },
     Test / jsEnv := {
       val options = new ChromeOptions()
