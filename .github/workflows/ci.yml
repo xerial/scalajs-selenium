@@ -37,6 +37,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          cache: sbt
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
