@@ -40,6 +40,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
+      - name: Node.js setup
+        run: npm install
       - name: Install chromedriver
         run: |
           wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
