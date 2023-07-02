@@ -12,5 +12,7 @@ class MainUITest extends AirSpec {
     val elem = dom.document.getElementById("ui-title")
     elem shouldNotBe null
     elem.innerHTML shouldContain "Hello Scala.js + Selenium"
+
+    println("Completed DOM UI test")
   }
 }
