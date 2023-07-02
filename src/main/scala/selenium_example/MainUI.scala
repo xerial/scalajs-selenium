@@ -21,10 +21,8 @@ object MainUI:
     val mainPanel = MainPanel()
     DOMRenderer.renderTo(mainNode, mainPanel)
 
-
 class MainPanel extends RxElement:
   def render: RxElement = div(
     id -> "ui-title",
     p("Hello Scala.js + Selenium")
   )
-
