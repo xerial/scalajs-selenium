@@ -22,9 +22,10 @@ lazy val `test-selenium` = project
     },
     Test / jsEnv := {
       val options = new ChromeOptions()
-      //options.setHeadless(true)
+      options.addArguments("--disable-web-security")
+      options.setHeadless(true)
       new SeleniumJSEnv(options, SeleniumJSEnv.Config())
-    },    
+    },
     externalNpm := {
       //scala.sys.process.Process(List("npm", "install", "--silent", "--no-audit", "--no-fund"), baseDirectory.value).!
       baseDirectory.value
