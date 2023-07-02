@@ -2,6 +2,8 @@ import org.scalajs.linker.interface.ModuleSplitStyle
 import org.openqa.selenium.chrome.{ChromeDriver,ChromeOptions}
 import org.scalajs.jsenv.selenium.SeleniumJSEnv
 
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
 val publicDev = taskKey[String]("output directory for `npm run dev`")
 val publicProd = taskKey[String]("output directory for `npm run build`")
 
@@ -19,7 +21,7 @@ lazy val `test-selenium` = project
     },
     Test / jsEnv := {
       val options = new ChromeOptions()
-      options.setHeadless(true)
+      //options.setHeadless(true)
       new SeleniumJSEnv(options, SeleniumJSEnv.Config())
     },    
     externalNpm := {
