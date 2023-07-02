@@ -12,7 +12,7 @@ lazy val `test-selenium` = project
   .enablePlugins(ScalaJSPlugin)
   .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
   .settings(
-    scalaVersion := "3.1.2",
+    scalaVersion := "3.3.0",
     scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
     scalaJSUseMainModuleInitializer := true,
     // Removing this ESModule settings will pass test with Selenium, but JS modules cannot be loaded
