@@ -48,7 +48,7 @@ jobs:
         with:
           node-version: '18'
           cache: npm
-      - name: Node.js setup
+      - name: Install NPM modules
         run: npm install
       - name: Install chromedriver
         run: |
