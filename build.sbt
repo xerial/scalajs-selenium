@@ -1,5 +1,5 @@
 import org.scalajs.linker.interface.ModuleSplitStyle
-import org.openqa.selenium.chrome.{ChromeDriver,ChromeOptions}
+import org.openqa.selenium.chrome.ChromeOptions
 import org.scalajs.jsenv.selenium.SeleniumJSEnv
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
@@ -7,7 +7,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 val publicDev = taskKey[String]("output directory for `npm run dev`")
 val publicProd = taskKey[String]("output directory for `npm run build`")
 
-lazy val `test-selenium` = project
+lazy val seleniumTest = project
   .in(file("."))
   .enablePlugins(ScalaJSPlugin)
   .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
@@ -15,13 +15,13 @@ lazy val `test-selenium` = project
     scalaVersion := "3.3.0",
     scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
     scalaJSUseMainModuleInitializer := true,
-    // Removing this ESModule settings will pass test with Selenium, but JS modules cannot be loaded
     scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.ESModule)
         .withModuleSplitStyle(ModuleSplitStyle.SmallestModules)
     },
     Test / jsEnv := {
       val options = new ChromeOptions()
+      // Need to disable CORS check for local testing
       options.addArguments("--disable-web-security")
       options.setHeadless(true)
       new SeleniumJSEnv(options, SeleniumJSEnv.Config())
