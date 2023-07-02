@@ -14,6 +14,8 @@ lazy val seleniumTest = project
   .settings(
     scalaVersion := "3.3.0",
     scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
+    libraryDependencies += "org.wvlet.airframe" %%% "airspec" % "23.6.2" % Test,
+    testFrameworks += new TestFramework("wvlet.airspec.Framework"),
     scalaJSUseMainModuleInitializer := true,
     scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.ESModule)
@@ -22,7 +24,10 @@ lazy val seleniumTest = project
     Test / jsEnv := {
       val options = new ChromeOptions()
       // Need to disable CORS check for local testing
-      options.addArguments("--disable-web-security")
+      options.addArguments(
+        "--disable-web-security"
+        //  "--no-sandbox"
+      )
       options.setHeadless(true)
       new SeleniumJSEnv(options, SeleniumJSEnv.Config())
     },
@@ -30,9 +35,9 @@ lazy val seleniumTest = project
       //scala.sys.process.Process(List("npm", "install", "--silent", "--no-audit", "--no-fund"), baseDirectory.value).!
       baseDirectory.value
     },
-
     libraryDependencies ++= Seq(
-      "org.seleniumhq.selenium" % "selenium-java" % "4.10.0" % Test
+      "org.seleniumhq.selenium" % "selenium-java" % "4.10.0" % Test,
+      "org.wvlet.airframe" %%% "airframe-rx-html" % "23.6.2"
     ),
 
     publicDev := linkerOutputDirectory((Compile / fastLinkJS).value).getAbsolutePath(),
