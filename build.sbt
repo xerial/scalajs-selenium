@@ -35,6 +35,7 @@ lazy val seleniumTest = project
       //scala.sys.process.Process(List("npm", "install", "--silent", "--no-audit", "--no-fund"), baseDirectory.value).!
       baseDirectory.value
     },
+    Test / parallelExecution := false,
     libraryDependencies ++= Seq(
       "org.seleniumhq.selenium" % "selenium-java" % "4.10.0" % Test,
       "org.wvlet.airframe" %%% "airframe-rx-html" % "23.6.2"
