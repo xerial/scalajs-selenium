@@ -9,6 +9,7 @@ on:
       - '.scalafmt.conf'
       - '.github/workflows/*.yml'
       - 'project/build.properties'
+      - 'package*.json'
   push:
     branches:
       - main
@@ -19,6 +20,7 @@ on:
       - '.scalafmt.conf'
       - '.github/workflows/*.yml'
       - 'project/build.properties'
+      - 'package*.json'
 
 # For reporting test reports
 permissions:
