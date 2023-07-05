@@ -32,7 +32,7 @@ lazy val seleniumTest = project
       new SeleniumJSEnv(options, SeleniumJSEnv.Config())
     },
     externalNpm := {
-      //scala.sys.process.Process(List("npm", "install", "--silent", "--no-audit", "--no-fund"), baseDirectory.value).!
+      scala.sys.process.Process(List("npm", "install", "--silent", "--no-audit", "--no-fund"), baseDirectory.value).!
       baseDirectory.value
     },
     Test / parallelExecution := false,
