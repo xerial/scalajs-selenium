@@ -4,7 +4,7 @@ import org.scalajs.jsenv.selenium.SeleniumJSEnv
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-val publicDev  = taskKey[String]("output directory for `npm run dev`")
+val publicDev = taskKey[String]("output directory for `npm run dev`")
 val publicProd = taskKey[String]("output directory for `npm run build`")
 
 lazy val seleniumTest = project
@@ -14,7 +14,7 @@ lazy val seleniumTest = project
   .settings(
     scalaVersion := "3.3.0",
     scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
-    libraryDependencies += "org.wvlet.airframe" %%% "airspec" % "23.8.6" % Test,
+    libraryDependencies += "org.wvlet.airframe" %%% "airspec" % "23.6.2" % Test,
     testFrameworks += new TestFramework("wvlet.airspec.Framework"),
     scalaJSUseMainModuleInitializer := true,
     scalaJSLinkerConfig ~= {
@@ -37,18 +37,18 @@ lazy val seleniumTest = project
     },
     Test / parallelExecution := false,
     libraryDependencies ++= Seq(
-      "org.seleniumhq.selenium" % "selenium-java"    % "4.10.0" % Test,
-      "org.wvlet.airframe"    %%% "airframe-rx-html" % "23.8.6"
+      "org.seleniumhq.selenium" % "selenium-java" % "4.10.0" % Test,
+      "org.wvlet.airframe" %%% "airframe-rx-html" % "23.6.2"
     ),
-    publicDev  := linkerOutputDirectory((Compile / fastLinkJS).value).getAbsolutePath(),
-    publicProd := linkerOutputDirectory((Compile / fullLinkJS).value).getAbsolutePath()
+
+    publicDev := linkerOutputDirectory((Compile / fastLinkJS).value).getAbsolutePath(),
+    publicProd := linkerOutputDirectory((Compile / fullLinkJS).value).getAbsolutePath(),
   )
 
 def linkerOutputDirectory(v: Attributed[org.scalajs.linker.interface.Report]): File = {
   v.get(scalaJSLinkerOutputDirectory.key).getOrElse {
     throw new MessageOnlyException(
-      "Linking report was not attributed with output directory. " +
-        "Please report this as a Scala.js bug."
-    )
+        "Linking report was not attributed with output directory. " +
+        "Please report this as a Scala.js bug.")
   }
 }
