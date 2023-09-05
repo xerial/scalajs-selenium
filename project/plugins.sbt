@@ -2,10 +2,10 @@ ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" 
 
 libraryDependencies ++= Seq(
   // selenium requires Guava
-  "com.google.guava" % "guava" % "31.1-jre",
-  "org.scala-js" %% "scalajs-env-selenium" % "1.1.1"
+  "com.google.guava" % "guava"                % "32.1.2-jre",
+  "org.scala-js"    %% "scalajs-env-selenium" % "1.1.1"
 )
 
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "1.13.2")
+addSbtPlugin("org.scala-js"                % "sbt-scalajs"   % "1.13.2")
 addSbtPlugin("org.scalablytyped.converter" % "sbt-converter" % "1.0.0-beta42")
-addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
+addSbtPlugin("org.scalameta"               % "sbt-scalafmt"  % "2.4.6")
