@@ -9,17 +9,8 @@ object MainUI:
     renderMain()
 
   def renderMain(): Unit =
-    // Insert main node if not exists
-    val mainNode = dom.document.getElementById("main") match {
-      case null =>
-        val elem = dom.document.createElement("div")
-        elem.setAttribute("id", "main")
-        dom.document.body.appendChild(elem)
-      case other => other
-    }
-
     val mainPanel = MainPanel()
-    DOMRenderer.renderTo(mainNode, mainPanel)
+    mainPanel.renderTo("main")
 
 class MainPanel extends RxElement:
   def render: RxElement = div(
