@@ -2,7 +2,7 @@ ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" 
 
 libraryDependencies ++= Seq(
   // selenium requires Guava
-  "com.google.guava" % "guava"                % "32.1.3-jre",
+  "com.google.guava" % "guava"                % "33.0.0-jre",
   "org.scala-js"    %% "scalajs-env-selenium" % "1.1.1"
 )
 
