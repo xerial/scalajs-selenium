@@ -12,7 +12,7 @@ lazy val seleniumTest = project
   .enablePlugins(ScalaJSPlugin)
   .enablePlugins(ScalablyTypedConverterExternalNpmPlugin)
   .settings(
-    scalaVersion := "3.3.3",
+    scalaVersion := "3.4.1",
     scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
     libraryDependencies += "org.wvlet.airframe" %%% "airspec" % "24.3.0" % Test,
     testFrameworks += new TestFramework("wvlet.airspec.Framework"),
