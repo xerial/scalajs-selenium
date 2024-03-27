@@ -37,7 +37,7 @@ lazy val seleniumTest = project
     },
     Test / parallelExecution := false,
     libraryDependencies ++= Seq(
-      "org.seleniumhq.selenium" % "selenium-java"    % "4.18.1" % Test,
+      "org.seleniumhq.selenium" % "selenium-java"    % "4.19.0" % Test,
       "org.wvlet.airframe"    %%% "airframe-rx-html" % "24.3.0"
     ),
     publicDev  := linkerOutputDirectory((Compile / fastLinkJS).value).getAbsolutePath(),
