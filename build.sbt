@@ -14,7 +14,7 @@ lazy val seleniumTest = project
   .settings(
     scalaVersion := "3.3.3",
     scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
-    libraryDependencies += "org.wvlet.airframe" %%% "airspec" % "24.4.2" % Test,
+    libraryDependencies += "org.wvlet.airframe" %%% "airspec" % "24.4.3" % Test,
     testFrameworks += new TestFramework("wvlet.airspec.Framework"),
     scalaJSUseMainModuleInitializer := true,
     scalaJSLinkerConfig ~= {
@@ -38,7 +38,7 @@ lazy val seleniumTest = project
     Test / parallelExecution := false,
     libraryDependencies ++= Seq(
       "org.seleniumhq.selenium" % "selenium-java"    % "4.19.1" % Test,
-      "org.wvlet.airframe"    %%% "airframe-rx-html" % "24.4.2"
+      "org.wvlet.airframe"    %%% "airframe-rx-html" % "24.4.3"
     ),
     publicDev  := linkerOutputDirectory((Compile / fastLinkJS).value).getAbsolutePath(),
     publicProd := linkerOutputDirectory((Compile / fullLinkJS).value).getAbsolutePath()
