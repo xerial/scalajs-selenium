@@ -8,4 +8,4 @@ libraryDependencies ++= Seq(
 
 addSbtPlugin("org.scala-js"                % "sbt-scalajs"   % "1.20.2")
 addSbtPlugin("org.scalablytyped.converter" % "sbt-converter" % "1.0.0-beta45")
-addSbtPlugin("org.scalameta"               % "sbt-scalafmt"  % "2.5.6")
+addSbtPlugin("org.scalameta"               % "sbt-scalafmt"  % "2.6.2")
